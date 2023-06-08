@@ -11,6 +11,7 @@ const initialContacts = [
 export const contactsReducer = (state = initialContacts, action) => {
   switch (action.type) {
     case ACTION_TYPE.addContacts:
+      console.log('contactsReducer --> action.payload', action.payload);
       return [...state, action.payload];
 
     case ACTION_TYPE.deleteContacts:
