@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 
 import Button from '@mui/material/Button';
@@ -13,24 +12,18 @@ function Contact({ item }) {
   const handleDeleteContact = () => dispatch(deleteContacts(item.id));
 
   return (
-    <>
-      <li key={nanoid(5)} className={css.item}>
-        {`${item.name}: ${item.number}`}
-        <Button
-          size="small"
-          type="submit"
-          onClick={handleDeleteContact}
-          variant="outlined"
-          startIcon={<DeleteIcon />}
-        >
-          Delete
-        </Button>
-      </li>
-
-      {/* <button type="submit" onClick={() => deleteContact(item.id)}>
-        delete
-      </button> */}
-    </>
+    <li className={css.item}>
+      {`${item.name}: ${item.number}`}
+      <Button
+        size="small"
+        type="submit"
+        onClick={handleDeleteContact}
+        variant="outlined"
+        startIcon={<DeleteIcon />}
+      >
+        Delete
+      </Button>
+    </li>
   );
 }
 
