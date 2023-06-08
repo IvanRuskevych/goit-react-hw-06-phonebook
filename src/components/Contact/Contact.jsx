@@ -5,8 +5,13 @@ import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import css from './Contact.module.css';
+import { useDispatch } from 'react-redux';
+import { deleteContacts } from 'redux/actions';
 
-function Contact({ item, deleteContact }) {
+function Contact({ item }) {
+  const dispatch = useDispatch();
+  const handleDeleteContact = () => dispatch(deleteContacts(item.id));
+
   return (
     <>
       <li key={nanoid(5)} className={css.item}>
@@ -14,7 +19,7 @@ function Contact({ item, deleteContact }) {
         <Button
           size="small"
           type="submit"
-          onClick={() => deleteContact(item.id)}
+          onClick={handleDeleteContact}
           variant="outlined"
           startIcon={<DeleteIcon />}
         >
