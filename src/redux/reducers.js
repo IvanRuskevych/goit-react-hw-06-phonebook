@@ -11,14 +11,10 @@ const initialContacts = [
 export const contactsReducer = (state = initialContacts, action) => {
   switch (action.type) {
     case ACTION_TYPE.addContacts:
-      console.log('contactsReducer --> action.payload', action.payload);
       return [...state, action.payload];
 
     case ACTION_TYPE.deleteContacts:
       return state.filter(contact => contact.id !== action.payload);
-
-    case ACTION_TYPE.setFilteredContacts:
-      return action.payload;
 
     default:
       return state;
@@ -49,4 +45,3 @@ export const reducer = combineReducers({
   filter: filterReducer,
   contacts: contactsReducer,
 });
-//

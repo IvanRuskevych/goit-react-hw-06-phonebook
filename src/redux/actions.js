@@ -9,12 +9,9 @@ export const getFilterValue = value => {
 };
 
 export const addContacts = (name, number) => {
-  console.log('action - name :>>', name);
-  console.log('action - number :>>', number);
-
   return {
     type: ACTION_TYPE.addContacts,
-    pyaload: { id: nanoid(5), name, number },
+    payload: { id: nanoid(5), name, number },
   };
 };
 
