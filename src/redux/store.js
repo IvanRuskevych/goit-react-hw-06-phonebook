@@ -10,6 +10,8 @@ const enhancer = devToolsEnhancer();
 const persistConfig = {
   key: 'phonebook',
   storage,
+  whitelist: ['contacts'],
+  // blacklist: ['filter'],
 };
 const persistedReducer = persistReducer(persistConfig, reducer);
 
