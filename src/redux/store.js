@@ -1,9 +1,18 @@
 import { createStore } from 'redux';
 import { reducer } from './reducers';
 
-const { devToolsEnhancer } = require('@redux-devtools/extension');
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 
+const { devToolsEnhancer } = require('@redux-devtools/extension');
 const enhancer = devToolsEnhancer();
 
-export const store = createStore(reducer, enhancer);
-//
+const persistConfig = {
+  key: 'phonebook',
+  storage,
+};
+const persistedReducer = persistReducer(persistConfig, reducer);
+
+export const store = createStore(persistedReducer, enhancer);
+
+export const persistorStore = persistStore(store);
